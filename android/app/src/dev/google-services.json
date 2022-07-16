@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "647654641942",
+    "project_id": "bellportal",
+    "storage_bucket": "bellportal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647654641942:android:37f5ffce26209931430037",
+        "android_client_info": {
+          "package_name": "com.bells.portal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647654641942-ettegvfjk0li2im40jscts2ecp9qsqqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY4Ilgr1j1LB3MQdGFDkp4Tk-vEornu6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647654641942-ettegvfjk0li2im40jscts2ecp9qsqqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647654641942:android:bf0c86b01c095330430037",
+        "android_client_info": {
+          "package_name": "com.bells.portal.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647654641942-ettegvfjk0li2im40jscts2ecp9qsqqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY4Ilgr1j1LB3MQdGFDkp4Tk-vEornu6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647654641942-ettegvfjk0li2im40jscts2ecp9qsqqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
