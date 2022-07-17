@@ -6,6 +6,10 @@ class AssetNames {
   static const String portalRegisterCourse = "assets/images/portal_register_course_icon.png";
   static const String portalProfile = "assets/images/portal_profile.png";
   static const String portalHomeIcon = "assets/images/portal_home_icon.png";
+  static const String portalNameIcon = "assets/images/portal_name_icon.png";
+  static const String portalDollarIcon = "assets/images/portal_dollar_icon.png";
+  static const String portalGraduationCapIcon = "assets/images/portal_graduation_icon.png";
+
 
 
   /// Bells Portal

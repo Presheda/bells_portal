@@ -15,58 +15,157 @@ class HomePage extends StatelessWidget {
         return CustomScrollView(
           physics: BouncingScrollPhysics(),
           slivers: [
-            SliverAppBar(
-              flexibleSpace: Center(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              sliver: SliverList(
+                  delegate: SliverChildListDelegate(([
+                SizedBox(
+                  height: 74,
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-
-
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: RichText(text: TextSpan(
-                        text: " Online ",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Theme.of(context).textTheme.bodyText1.color
-                        ),
-
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-
-                          TextSpan(
-                            text: "6",
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 16
-                            )
+                          CustomText(
+                            title: model.getTimeOfDay(),
+                            fontSize: 11,
+                            fontWeight: FontWeight.w300,
+                            color: Color(0xff0B0D0C),
+                          ),
+                          CustomHeaderText(
+                            title: model.getUserName(),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xff0B0D0C),
                           )
-                        ]
-                      )),
-                    ),
-
-
-
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CustomText(
-                        title: "",
-                        fontSize: 16,
+                        ],
                       ),
                     ),
-                    DIconButtonWidget(
-                      iconData: Icons.notifications,
-
-                      onTap: () {},
-                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: ImageIcon(
+                          AssetImage(AssetNames.portalNameIcon),
+                          color: Color(0xff0B0D0C),
+                        ))
                   ],
                 ),
-              ),
-              centerTitle: true,
-              expandedHeight: 100,
-              collapsedHeight: 100,
+                SizedBox(
+                  height: 28,
+                ),
+                FinancialInfoWidget(
+                  onTap: model.financialWidgetTap,
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+              ]))),
+            ),
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              sliver: SliverGrid(
+                  delegate: SliverChildBuilderDelegate((c, index) {
+                    String image;
+                    String title;
+                    String titleValue;
+                    String subTitle;
+                    String subTileValue;
+
+                    Color cardColor;
+                    Color imageColor;
+                    Color imageBackColor;
+
+                    switch (index) {
+                      case 0:
+                        title = "Current Session";
+                        titleValue = model.getCurrentSession();
+
+                        subTitle = "Reg Status";
+                        subTileValue = model.getCourseRegStatus();
+                        image = AssetNames.portalGraduationCapIcon;
+
+                        imageColor = Color(0xff4092D6);
+                        cardColor = Color(0xffF3FAFF);
+                        imageBackColor = Color(0xffC6E6FC);
+
+                        break;
+
+                      case 1:
+                        title = "Current Semester";
+                        titleValue = model.getCurrentSemester();
+
+                        subTitle = "Course Reg";
+                        subTileValue = model.getStudentCourseRegStatus();
+                        image = AssetNames.portalGraduationCapIcon;
+
+                        imageColor = Color(0xff409049);
+                        cardColor = Color(0xffF2FFF4);
+                        imageBackColor = Color(0xffDAFFDF);
+
+                        break;
+                    }
+
+                    return SessionCourseRegCard(
+                      title: title,
+                      titleValue: titleValue,
+                      subTitle: subTitle,
+                      subTileValue: subTileValue,
+                      image: image,
+                      imageColor: imageColor,
+                      cardColor: cardColor,
+                      imageBackColor: imageBackColor,
+                    );
+                  }, childCount: 2),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 20)),
             ),
 
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate(([
+
+                  SizedBox(
+                    height: 20,
+                  ),
+
+
+                  CustomText(
+                    title: "Student Biodata",
+                    color: Theme.of(context).textTheme.headline5.color,
+                    fontSize: 14,
+                    maxLine: 1,
+                    fontWeight: FontWeight.w700,
+                    lineHeight: 20,
+                  ),
+
+                  CustomText(
+                    title: "This is a brief biodata of yourself",
+                    fontSize: 12,
+                    maxLine: 1,
+                    fontWeight: FontWeight.w400,
+                    lineHeight: 20,
+                  ),
+
+                  SizedBox(
+                    height: 16,
+                  ),
+
+                  StudentBioDataCard(
+                    userData : model.userData
+                  ),
+
+
+
+                ])),
+              )
+            )
           ],
         );
       },

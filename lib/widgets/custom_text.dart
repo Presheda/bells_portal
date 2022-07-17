@@ -41,18 +41,25 @@ class CustomText extends StatelessWidget {
       style: isNaira != null && isNaira ? GoogleFonts.roboto(
           letterSpacing: letterSpacing,
           fontSize: fontSize ?? 10,
-          fontWeight: fontWeight,
-          height: lineHeight,
+          fontWeight: fontWeight ?? FontWeight.w600,
+          height: _calculateLineHeight(fontSize ?? 14, lineHeight),
           color: color ?? Theme.of(context).textTheme.bodyText1.color,
         fontStyle: fontStyle
       ) : GoogleFonts.poppins(
           letterSpacing: letterSpacing,
+          fontWeight: fontWeight ?? FontWeight.w600,
           fontSize: fontSize ?? 10,
         fontStyle: fontStyle,
-          height: lineHeight,
+          height: _calculateLineHeight(fontSize ?? 14, lineHeight),
           color: color ?? Theme.of(context).textTheme.bodyText1.color),
 
     );
+  }
+
+  _calculateLineHeight(double d, double lineHeight) {
+    if(lineHeight == null) return null;
+
+    return lineHeight / fontSize;
   }
 }
 
@@ -93,11 +100,17 @@ class CustomHeaderText extends StatelessWidget {
         letterSpacing: -0.25,
         fontSize: fontSize ?? 10,
         //fontFamily: "ITCAVANT",
-        fontWeight: FontWeight.w600,
+        fontWeight: fontWeight ?? FontWeight.w600,
         fontStyle: fontStyle,
-        height: lineHeight,
+        height: _calculateLineHeight(fontSize ?? 14, lineHeight),
         color: color ?? Theme.of(context).textTheme.headline6.color,
       ),
     );
+  }
+
+  _calculateLineHeight(double d, double lineHeight) {
+    if(lineHeight == null) return null;
+
+    return lineHeight / fontSize;
   }
 }

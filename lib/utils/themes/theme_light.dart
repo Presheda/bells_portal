@@ -92,7 +92,7 @@ class DeggiaLightTheme {
             headline2: TextStyle(color: textColorDark),
             headline3: TextStyle(color: textColorDark),
             headline4: TextStyle(color: textColorDark),
-            headline5: TextStyle(color: textColorDark),
+            headline5: TextStyle(color: Color(0xff0B0D0C)),
             headline6: TextStyle(
                 color: Color(0xff0E0F13), fontWeight: FontWeight.bold, fontSize: 20),
           ),

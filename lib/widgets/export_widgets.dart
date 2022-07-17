@@ -33,9 +33,10 @@ export 'info_widget.dart';
 export 'delivery_mode_sheet.dart';
 export 'contact_us_widget.dart';
 export 'caller_action_widget.dart';
-
+export 'financial_info_widget.dart';
 export 'custom_native_dialog.dart';
 export 'custom_rating_toggle_button.dart';
-
+export 'session_course_reg_card.dart';
 export 'select_name_widget.dart';
 export 'settings_card.dart';
+export 'student_biodata_card.dart';

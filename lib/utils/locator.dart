@@ -44,7 +44,7 @@ void setupServices() {
   locator.registerLazySingleton<CloudFunctionService>(() => CloudFunctionServiceReal());
 
   locator.registerFactory<DNavigationService>(() => DNavigationServiceReal());
-  locator.registerFactory<UserDataService>(() => UserDataServiceReal());
+  locator.registerFactory<UserDataService>(() => UserDataServiceFake());
   locator.registerFactory<GenerateDocumentID>(() => GenerateDocumentIDReal());
   locator.registerFactory<GeneralRefService>(() => GeneralRefServiceReal());
 
