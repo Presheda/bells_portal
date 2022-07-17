@@ -4,7 +4,6 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:bells_portal/Services/service_export.dart';
 
-
 import 'package:bells_portal/widgets/export_widgets.dart';
 
 import 'check_email_screen.dart';
@@ -13,13 +12,14 @@ class LoginController extends GetxController {
   AuthService _authService = locator<AuthService>();
 
   DNavigationService _navigationService = locator<DNavigationService>();
+  GeneralRefService _generalRefService = locator<GeneralRefService>();
 
   StorageService _storageService = locator<StorageService>();
 
-  TextEditingController emailController = TextEditingController();
+  TextEditingController matricController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  FocusNode emailFocus = FocusNode();
+  FocusNode matricFocus = FocusNode();
   FocusNode passwordFocus = FocusNode();
 
   bool isConnected = true;
@@ -27,7 +27,6 @@ class LoginController extends GetxController {
   StreamSubscription<ConnectivityResult> _streamSubscription;
 
   bool hidePassword = true;
-
 
   @override
   void onClose() {
@@ -55,13 +54,13 @@ class LoginController extends GetxController {
   }
 
   void loginClicked() async {
-   // if (!formKey.currentState.validate()) return;
+    // if (!formKey.currentState.validate()) return;
 
-    String email = emailController.text.trim();
+    String matric = matricController.text.trim();
     String password = passwordController.text.trim();
 
-    if (!Validators.validateEmail(email)) {
-      CustomSnackBar.errorSnackBar(title: "please enter a valid email");
+    if (!Validators.validateMatric(matric)) {
+      CustomSnackBar.errorSnackBar(title: "please enter a valid matric");
       return;
     }
 
@@ -70,7 +69,7 @@ class LoginController extends GetxController {
       return;
     }
 
-    emailFocus.unfocus();
+    matricFocus.unfocus();
     passwordFocus.unfocus();
 
     if (!isConnected) {
@@ -79,6 +78,16 @@ class LoginController extends GetxController {
     }
 
     loadDialog(title: "Taking you in", dismiss: false);
+
+    String email = await _generalRefService.findMatric(matric: matric);
+
+    if (email == null) {
+      Get.back();
+
+      CustomSnackBar.errorSnackBar(title: "Network Or No Account Found");
+
+      return;
+    }
 
     var data = await _authService.login(email: email, password: password);
 
@@ -89,38 +98,36 @@ class LoginController extends GetxController {
       return;
     }
 
-
-
     bool isRider = await _authService.isRider();
 
-    if (isRider) {
-      _authService.signOut();
+    // if (isRider) {
+    //   _authService.signOut();
+    //
+    //   Get.back();
+    //
+    //   var dialog = AwesomeDialog(
+    //       context: Get.overlayContext,
+    //       dialogType: DialogType.NO_HEADER,
+    //       animType: AnimType.SCALE,
+    //       dismissOnBackKeyPress: true,
+    //       dismissOnTouchOutside: false,
+    //       btnOkOnPress: () {},
+    //       onDissmissCallback: () {},
+    //       title: "Verification Failed",
+    //       padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 20),
+    //       desc: "We identified this account to be a driver ");
+    //
+    //   dialog.show();
+    //
+    //   return;
+    // }
 
-      Get.back();
-
-      var dialog = AwesomeDialog(
-          context: Get.overlayContext,
-          dialogType: DialogType.NO_HEADER,
-          animType: AnimType.SCALE,
-          dismissOnBackKeyPress: true,
-          dismissOnTouchOutside: false,
-          btnOkOnPress: () {},
-          onDissmissCallback: () {},
-          title: "Verification Failed",
-          padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 20),
-          desc: "We identified this account to be a driver ");
-
-      dialog.show();
-
-      return;
-    }
-
-    bool complete = await _storageService.isProfileCompleted();
-
-    if (!complete) {
-      _navigationService.offAllNamedUntil(name: RouteName.profile_screen);
-      return;
-    }
+    // bool complete = await _storageService.isProfileCompleted();
+    //
+    // if (!complete) {
+    //   _navigationService.offAllNamedUntil(name: RouteName.profile_screen);
+    //   return;
+    // }
 
     _navigationService.offAllNamedUntil(name: RouteName.user_dashboard);
   }

@@ -26,10 +26,12 @@ class InfoWidget extends StatelessWidget {
             SizedBox(
               width: 13,
             ),
-            CustomText(
-              //     fontStyle: FontStyle.italic,
-              fontSize: 12,
-              title: title,
+            Expanded(
+              child: CustomText(
+                //     fontStyle: FontStyle.italic,
+                fontSize: 12,
+                title: title,
+              ),
             ),
           ],
         ),

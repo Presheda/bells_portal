@@ -46,6 +46,7 @@ void setupServices() {
   locator.registerFactory<DNavigationService>(() => DNavigationServiceReal());
   locator.registerFactory<UserDataService>(() => UserDataServiceReal());
   locator.registerFactory<GenerateDocumentID>(() => GenerateDocumentIDReal());
+  locator.registerFactory<GeneralRefService>(() => GeneralRefServiceReal());
 
 }
 
@@ -57,6 +58,7 @@ void setupFakeServices() {
   locator.registerLazySingleton<AuthService>(() => AuthServiceReal());
 
   locator.registerFactory<DNavigationService>(() => DNavigationServiceReal());
+  locator.registerFactory<GeneralRefService>(() => GeneralRefServiceFake());
 
 
 

@@ -110,6 +110,7 @@ class DeggiaLightTheme {
         disabledColor: Color(0xffA1A1A1),
 
         inputDecorationTheme: InputDecorationTheme(
+
             fillColor:   textFieldFilledColor,
             labelStyle: TextStyle(
                 fontSize: 14,

@@ -1,4 +1,15 @@
 class AssetNames {
+
+  /// Bells Portal
+
+
+  static const String portalRegisterCourse = "assets/images/portal_register_course_icon.png";
+  static const String portalProfile = "assets/images/portal_profile.png";
+  static const String portalHomeIcon = "assets/images/portal_home_icon.png";
+
+
+  /// Bells Portal
+
   static const String notificationImage =
       "assets/images/notification_image.png";
 

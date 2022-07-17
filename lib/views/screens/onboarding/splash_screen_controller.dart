@@ -55,15 +55,15 @@ class SplashScreenController extends GetxController {
 
     if (isLoggedIn) {
 
-      if (!completeProfile) {
-        //incomplete profile, continue on-boarding
-
-        await _navigationService.offAndToNamed(
-          name: RouteName.profile_screen,
-        );
-
-        return;
-      }
+      // if (!completeProfile) {
+      //   //incomplete profile, continue on-boarding
+      //
+      //   await _navigationService.offAndToNamed(
+      //     name: RouteName.profile_screen,
+      //   );
+      //
+      //   return;
+      // }
 
       // profile is completed go to homepage
       await _navigationService.offAndToNamed(

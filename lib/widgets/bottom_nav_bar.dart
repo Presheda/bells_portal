@@ -19,40 +19,47 @@ class DBottomNavBar extends StatelessWidget {
       activeIndex: index,
       gapLocation: GapLocation.none,
       notchSmoothness: NotchSmoothness.verySmoothEdge,
-      leftCornerRadius: 25,
-      rightCornerRadius: 25,
+      // leftCornerRadius: 25,
+      // rightCornerRadius: 25,
       onTap: onTap,
-      itemCount: 4,
+      itemCount: 3,
       tabBuilder: (int index, bool isActive) {
-        IconData icon;
+        String icon;
+        String title = "Home";
         switch (index) {
           case 0:
-            icon = Icons.home;
+            icon = AssetNames.portalHomeIcon;
+            title = "Home";
             break;
 
           case 1:
-            icon = Icons.account_balance_wallet_rounded;
+            icon = AssetNames.portalRegisterCourse;
+            title = "Register Course";
             break;
 
           case 2:
-            icon = Icons.history;
-            break;
-
-          case 3:
-            icon = Icons.settings;
+            icon = AssetNames.portalProfile;
+            title = "Profile";
             break;
         }
 
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              color: isActive != null && isActive
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).primaryColor,
+            ImageIcon(
+              AssetImage(icon),
+              color: isActive != null && isActive ? Color(0xff444854) : Color(0xffA8A8A8),
               size: isActive != null && isActive ? 28 : 24,
             ),
+            SizedBox(
+              height: 8,
+            ),
+            CustomHeaderText(
+              title: title,
+              fontSize: 12,
+              fontWeight: isActive != null && isActive ?  FontWeight.w600 : FontWeight.w400,
+              color: isActive != null && isActive ? Color(0xff444854) : Color(0xffA8A8A8),
+            )
           ],
         );
       },

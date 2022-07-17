@@ -36,7 +36,7 @@ class UserDashboardController extends GetxController  {
 
   @override
   void onInit() {
-    Get.put(GeneralController());
+  //  Get.put(GeneralController());
     Get.put(HomePageController());
 
 

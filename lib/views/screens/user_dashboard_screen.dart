@@ -50,6 +50,8 @@ class _UserDashboardMobile extends StatelessWidget {
       index: model.currentIndex,
       children: [
         HomePage(),
+        HomePage(),
+        HomePage(),
       ],
     );
   }

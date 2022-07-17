@@ -17,9 +17,9 @@ class ForgotPasswordController extends GetxController {
 
   DNavigationService _navigationService = locator<DNavigationService>();
 
-  TextEditingController emailController = TextEditingController();
+  TextEditingController matricController = TextEditingController();
 
-  FocusNode emailFocus = FocusNode();
+  FocusNode matricFocus = FocusNode();
 
 
 
@@ -35,7 +35,7 @@ class ForgotPasswordController extends GetxController {
   @override
   void onClose() {
     _streamSubscription?.cancel();
-    emailController.dispose();
+    matricController.dispose();
     super.onClose();
   }
 
@@ -61,14 +61,16 @@ class ForgotPasswordController extends GetxController {
 
     if(!formKey.currentState.validate()) return;
 
-    String email = emailController.text;
+    String email = matricController.text;
 
     if (!Validators.validateEmail(email)) {
   CustomSnackBar.errorSnackBar(title: "please enter a valid email");
       return;
     }
 
-    emailFocus.unfocus();
+
+
+    matricFocus.unfocus();
 
     if (!isConnected) {
       CustomSnackBar.errorSnackBar(title: "No network connection");
@@ -111,5 +113,7 @@ class ForgotPasswordController extends GetxController {
 
     _navigationService.offAndToNamed(name: RouteName.login);
   }
+
+
 
 }
