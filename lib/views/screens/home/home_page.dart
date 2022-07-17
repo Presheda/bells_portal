@@ -79,6 +79,8 @@ class HomePage extends StatelessWidget {
                     Color imageColor;
                     Color imageBackColor;
 
+                    Function onTap;
+
                     switch (index) {
                       case 0:
                         title = "Current Session";
@@ -91,6 +93,7 @@ class HomePage extends StatelessWidget {
                         imageColor = Color(0xff4092D6);
                         cardColor = Color(0xffF3FAFF);
                         imageBackColor = Color(0xffC6E6FC);
+                        onTap = model.sessionTap;
 
                         break;
 
@@ -106,6 +109,8 @@ class HomePage extends StatelessWidget {
                         cardColor = Color(0xffF2FFF4);
                         imageBackColor = Color(0xffDAFFDF);
 
+                        onTap = model.semesterTap;
+
                         break;
                     }
 
@@ -118,6 +123,7 @@ class HomePage extends StatelessWidget {
                       imageColor: imageColor,
                       cardColor: cardColor,
                       imageBackColor: imageBackColor,
+                      onTap: onTap,
                     );
                   }, childCount: 2),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -125,47 +131,34 @@ class HomePage extends StatelessWidget {
                       mainAxisSpacing: 20,
                       crossAxisSpacing: 20)),
             ),
-
             SliverPadding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              sliver: SliverList(
-                delegate: SliverChildListDelegate(([
-
-                  SizedBox(
-                    height: 20,
-                  ),
-
-
-                  CustomText(
-                    title: "Student Biodata",
-                    color: Theme.of(context).textTheme.headline5.color,
-                    fontSize: 14,
-                    maxLine: 1,
-                    fontWeight: FontWeight.w700,
-                    lineHeight: 20,
-                  ),
-
-                  CustomText(
-                    title: "This is a brief biodata of yourself",
-                    fontSize: 12,
-                    maxLine: 1,
-                    fontWeight: FontWeight.w400,
-                    lineHeight: 20,
-                  ),
-
-                  SizedBox(
-                    height: 16,
-                  ),
-
-                  StudentBioDataCard(
-                    userData : model.userData
-                  ),
-
-
-
-                ])),
-              )
-            )
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                sliver: SliverList(
+                  delegate: SliverChildListDelegate(([
+                    SizedBox(
+                      height: 20,
+                    ),
+                    CustomText(
+                      title: "Student Biodata",
+                      color: Theme.of(context).textTheme.headline5.color,
+                      fontSize: 14,
+                      maxLine: 1,
+                      fontWeight: FontWeight.w700,
+                      lineHeight: 20,
+                    ),
+                    CustomText(
+                      title: "This is a brief biodata of yourself",
+                      fontSize: 12,
+                      maxLine: 1,
+                      fontWeight: FontWeight.w400,
+                      lineHeight: 20,
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    StudentBioDataCard(userData: model.userData),
+                  ])),
+                ))
           ],
         );
       },

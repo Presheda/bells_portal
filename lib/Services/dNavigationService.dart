@@ -1,4 +1,3 @@
-
 import 'package:bells_portal/utils/utils_export.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,8 +7,7 @@ abstract class DNavigationService {
   Future<dynamic> goToNamed(
       {@required String name, var data, var mixpanelEventData});
 
-
-  Future<void> until ({String name});
+  Future<void> until({String name});
 
   Future<dynamic> offAndToNamed(
       {String name, dynamic data, var mixpanelEventData});
@@ -62,35 +60,26 @@ class DNavigationServiceFake extends DNavigationService {
       {child, data, bool isScrollContinued, mixpanelEventData}) {}
 
   @override
-  Future<void> until({String name}) {
-
-  }
+  Future<void> until({String name}) {}
 }
 
 class DNavigationServiceReal extends DNavigationService {
-
   @override
   Future back() {}
 
   @override
   Future goToNamed({String name, var data, var mixpanelEventData}) {
-
-
-
-
     return Get.toNamed(name, arguments: data);
   }
 
   @override
   Future offAndToNamed({String name, data, var mixpanelEventData}) async {
-
-
     Get.offAndToNamed(name, arguments: data);
   }
 
   @override
   Future openBottomSheet(
-      {child, bool isScrollContinued, var data, mixpanelEventData}) {
+      {child, bool isScrollContinued, var data, mixpanelEventData}) async {
     Get.bottomSheet(child,
         backgroundColor: Get.theme.scaffoldBackgroundColor,
         isScrollControlled: isScrollContinued ?? false,
@@ -99,14 +88,14 @@ class DNavigationServiceReal extends DNavigationService {
         ),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-                topRight: Radius.circular(30), topLeft: Radius.circular(30))));
+                topRight: Radius.circular(20), topLeft: Radius.circular(20)))
+
+    );
   }
 
   @override
   Future offAllNamedUntil(
       {String name, String until, data, mixpanelEventData}) {
-
-
     if (until == null) until = "";
 
     return Get.offNamedUntil(
@@ -118,17 +107,9 @@ class DNavigationServiceReal extends DNavigationService {
   }
 
   @override
-  Future until(
-      {String name,  mixpanelEventData}) {
-
-
-
-    Get.until((route) => Get.currentRoute == name );
-
-
-
+  Future until({String name, mixpanelEventData}) {
+    Get.until((route) => Get.currentRoute == name);
   }
-
 
   @override
   Future offAndToWidget({widget, data, mixpanelEventData}) {
@@ -137,7 +118,6 @@ class DNavigationServiceReal extends DNavigationService {
     try {
       name = widget.toString();
     } catch (e) {}
-
 
     Get.off(widget, arguments: data);
   }

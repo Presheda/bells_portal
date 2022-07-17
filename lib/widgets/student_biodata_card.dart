@@ -28,7 +28,7 @@ class StudentBioDataCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          _StudentSubBioData(
+          StudentSubBioData(
             title: "Matriculation Number",
             value: userData.matric,
           ),
@@ -38,7 +38,7 @@ class StudentBioDataCard extends StatelessWidget {
               color: Color(0xffE1E3ED),
             ),
           ),
-          _StudentSubBioData(
+          StudentSubBioData(
             title: "Full Name",
             value: "${userData.firstName} ${userData.lastName}",
           ),
@@ -48,7 +48,7 @@ class StudentBioDataCard extends StatelessWidget {
               color: Color(0xffE1E3ED),
             ),
           ),
-          _StudentSubBioData(
+          StudentSubBioData(
             title: "Level",
             value: userData.level,
           ),
@@ -58,7 +58,7 @@ class StudentBioDataCard extends StatelessWidget {
               color: Color(0xffE1E3ED),
             ),
           ),
-          _StudentSubBioData(
+          StudentSubBioData(
             title: "Department",
             value: userData.department,
           ),
@@ -68,7 +68,7 @@ class StudentBioDataCard extends StatelessWidget {
               color: Color(0xffE1E3ED),
             ),
           ),
-          _StudentSubBioData(
+          StudentSubBioData(
             title: "Porgram",
             value: userData.program,
           ),
@@ -78,11 +78,11 @@ class StudentBioDataCard extends StatelessWidget {
   }
 }
 
-class _StudentSubBioData extends StatelessWidget {
+class StudentSubBioData extends StatelessWidget {
   final String title;
   final String value;
 
-  _StudentSubBioData({this.title, this.value});
+  StudentSubBioData({this.title, this.value});
 
   @override
   Widget build(BuildContext context) {
