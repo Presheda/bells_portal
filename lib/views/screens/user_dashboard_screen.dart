@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:bells_portal/utils/asset_names.dart';
 import 'package:bells_portal/views/controllers/export_controller.dart';
+import 'package:bells_portal/views/screens/course_reg/course_reg_page.dart';
 
 import 'package:bells_portal/widgets/export_widgets.dart';
 import 'package:upgrader/upgrader.dart';
@@ -52,7 +53,7 @@ class _UserDashboardMobile extends StatelessWidget {
       children: [
         HomePage(),
 
-        HomePage(),
+        CourseRegPage(),
         ProfilePage(),
       ],
     );

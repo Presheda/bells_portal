@@ -4,10 +4,9 @@ class GradientButton extends StatelessWidget {
   final String title;
   final Function onTap;
   final Color firstColor;
-  final Color secondColor;
+  final Color textColor;
 
-
-  GradientButton({this.title, this.onTap, this.firstColor, this.secondColor});
+  GradientButton({this.title, this.onTap, this.firstColor, this.textColor});
 
   @override
   Widget build(BuildContext context) {
@@ -34,30 +33,24 @@ class GradientButton extends StatelessWidget {
     //   ),
     // );
 
+    return ElevatedButton(
 
-  return  ElevatedButton(
       onPressed: onTap,
       style: ButtonStyle(
-          minimumSize: MaterialStateProperty.all(
-              Size(Get.width, 55)),
-          backgroundColor:
-          MaterialStateProperty.all(
-             firstColor ?? Theme.of(context).primaryColor),
+          minimumSize: MaterialStateProperty.all(Size(Get.width, 55)),
+          backgroundColor: MaterialStateProperty.all(
+              firstColor ?? Theme.of(context).primaryColor),
           shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-                borderRadius:
-                BorderRadius.circular(5)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           )),
       child: Center(
         child: CustomText(
           title: title,
-          color: Colors.white,
+          color: textColor ?? Colors.white,
           fontWeight: FontWeight.w600,
           fontSize: 16,
         ),
       ),
     );
-
-
   }
 }

@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:bells_portal/DataModel/model_export.dart';
 import 'package:bells_portal/Services/service_export.dart';
 import 'package:bells_portal/views/controllers/general_controller.dart';
+import 'package:bells_portal/views/screens/course_reg/course_reg_controller.dart';
 import 'package:bells_portal/views/screens/home/home_page_controller.dart';
 import 'package:bells_portal/views/screens/profile/profile_page_controller.dart';
 
 
 import 'package:bells_portal/widgets/export_widgets.dart';
+
 
 
 
@@ -40,6 +42,7 @@ class UserDashboardController extends GetxController  {
   //  Get.put(GeneralController());
     Get.put(HomePageController());
     Get.put(ProfilePageController());
+    Get.put(CourseRegController());
 
 
 
