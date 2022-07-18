@@ -25,10 +25,8 @@ class GeneralController extends GetxController {
     super.onInit();
   }
 
-
   @override
   void onClose() {
-
     _userAuth?.cancel();
     _userDataSubscription?.cancel();
     super.onClose();
@@ -46,8 +44,6 @@ class GeneralController extends GetxController {
     _userDataSubscription = _userDataService.listenForChanges().listen((event) {
       userData = event;
 
-
-
       if (userData == null) {
         try {
           _navigationService.offAllNamedUntil(
@@ -60,8 +56,6 @@ class GeneralController extends GetxController {
       }
 
       /// not let's update the settings section
-
-
     });
   }
 }

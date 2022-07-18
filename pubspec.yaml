@@ -41,7 +41,6 @@ dependencies:
   get_test: ^3.13.3
   badges: ^2.0.2
   sliding_up_panel: ^2.0.0+1
-
   shared_preferences: ^2.0.11
   smooth_page_indicator: ^0.2.0
   carousel_slider: ^2.2.1

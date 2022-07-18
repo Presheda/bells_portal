@@ -41,3 +41,4 @@ export 'select_name_widget.dart';
 export 'settings_card.dart';
 export 'student_biodata_card.dart';
 export 'session_information.dart';
+export 'profile_info_tab.dart';

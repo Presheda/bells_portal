@@ -10,8 +10,6 @@ abstract class UserDataService {
   Stream<UserData> listenForChanges();
 
   Future<void> saveUserData({UserData data});
-
-  bool isProfileComplete({UserData userData});
 }
 
 class UserDataServiceFake implements UserDataService {
@@ -24,7 +22,6 @@ class UserDataServiceFake implements UserDataService {
         location: "ClassRoom 5",
         lastName: "Afonja",
         phone: "08183698193",
-
         email: "example@gmail.com",
         uid: "hfrfgpojghhguygig");
   }
@@ -43,15 +40,7 @@ class UserDataServiceFake implements UserDataService {
   Future<void> saveUserData({UserData data}) async {
     await Future.delayed(Duration(seconds: 3));
   }
-
-  @override
-  bool isProfileComplete({UserData userData}) {
-
-    return true;
-  }
 }
-
-
 
 class UserDataServiceReal implements UserDataService {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -77,35 +66,12 @@ class UserDataServiceReal implements UserDataService {
 
   @override
   Future<void> saveUserData({UserData data}) async {
-
-
-    data.uid =  _authService.currentUserId();
+    data.uid = _authService.currentUserId();
     data.email = _authService.getCurrentUserEmail();
 
     await firestore
         .collection("users")
         .doc(_authService.currentUserId())
         .set(data.toMap());
-
-  }
-
-
-  @override
-  bool isProfileComplete({UserData userData}) {
-
-    if (userData == null) return false;
-
-    try {
-      return userData.firstName.isNotEmpty &&
-          userData.lastName.isNotEmpty &&
-          userData.phone.isNotEmpty &&
-          userData.lastName.isNotEmpty &&
-          userData.location.isNotEmpty;
-
-
-    } catch (e) {
-      return false;
-    }
-
   }
 }

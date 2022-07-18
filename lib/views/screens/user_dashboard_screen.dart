@@ -6,6 +6,7 @@ import 'package:bells_portal/views/controllers/export_controller.dart';
 import 'package:bells_portal/widgets/export_widgets.dart';
 import 'package:upgrader/upgrader.dart';
 import 'export_screens.dart';
+import 'profile/profile_page.dart';
 
 class UserDashboardScreen extends StatelessWidget {
   @override
@@ -50,8 +51,9 @@ class _UserDashboardMobile extends StatelessWidget {
       index: model.currentIndex,
       children: [
         HomePage(),
+
         HomePage(),
-        HomePage(),
+        ProfilePage(),
       ],
     );
   }

@@ -57,7 +57,7 @@ class CustomText extends StatelessWidget {
   }
 
   _calculateLineHeight(double d, double lineHeight) {
-    if(lineHeight == null) return null;
+    if(lineHeight == null || d == null) return null;
 
     return lineHeight / fontSize;
   }
@@ -111,6 +111,6 @@ class CustomHeaderText extends StatelessWidget {
   _calculateLineHeight(double d, double lineHeight) {
     if(lineHeight == null) return null;
 
-    return lineHeight / fontSize;
+    return lineHeight / d;
   }
 }
