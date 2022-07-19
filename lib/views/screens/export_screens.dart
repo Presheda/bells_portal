@@ -5,6 +5,7 @@ export 'onboarding/authentication/login_screen.dart';
 export 'onboarding/authentication/forgot_password_screen.dart';
 export 'onboarding/authentication/register_screen.dart';
 export 'onboarding/user_onboarding.dart';
-
+export 'course_reg/course_reg_screen.dart';
+export 'course_reg/course_list_screen.dart';
 
 

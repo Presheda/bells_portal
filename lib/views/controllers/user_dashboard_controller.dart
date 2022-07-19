@@ -42,7 +42,7 @@ class UserDashboardController extends GetxController  {
   //  Get.put(GeneralController());
     Get.put(HomePageController());
     Get.put(ProfilePageController());
-    Get.put(CourseRegController());
+    Get.put(CourseRegPageController());
 
 
 

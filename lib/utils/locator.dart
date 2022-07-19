@@ -41,13 +41,14 @@ void setupServices() {
 
   locator.registerFactory<StorageService>(() => StorageServiceReal());
   locator.registerLazySingleton<AuthService>(() => AuthServiceReal());
-  locator.registerLazySingleton<CloudFunctionService>(() => CloudFunctionServiceReal());
+  locator.registerLazySingleton<CloudFunctionService>(
+      () => CloudFunctionServiceReal());
 
   locator.registerFactory<DNavigationService>(() => DNavigationServiceReal());
   locator.registerFactory<UserDataService>(() => UserDataServiceFake());
   locator.registerFactory<GenerateDocumentID>(() => GenerateDocumentIDReal());
   locator.registerFactory<GeneralRefService>(() => GeneralRefServiceReal());
-
+  locator.registerFactory<CourseRegService>(() => CourseRegServiceReal());
 }
 
 void setupFakeServices() {
@@ -59,11 +60,7 @@ void setupFakeServices() {
 
   locator.registerFactory<DNavigationService>(() => DNavigationServiceReal());
   locator.registerFactory<GeneralRefService>(() => GeneralRefServiceFake());
-
-
-
 }
-
 
 void listenForFirebaseNotification() {
   /// background message
@@ -83,7 +80,6 @@ void listenForFirebaseNotification() {
       ///  one of either notification or data field must be null
       return;
     }
-
   });
 }
 
@@ -104,7 +100,6 @@ Future<void> firebaseMessagingBackgroundHandler(
     ///  one of either notification or data field must be null
     return;
   }
-
 }
 
 void showNotification(
@@ -179,8 +174,6 @@ void showNotification(
 
   int notificationId = OTHER_NOTIFICATION_ID;
 
-
-
   NotificationDetails platformChannelSpecifics = NotificationDetails(
       android: call != null && call
           ? callsNotificationsSpecific
@@ -188,8 +181,6 @@ void showNotification(
       iOS: call != null && call
           ? iosNotificationDetailsCalls
           : iosNotificationDetailsOrder);
-
-
 
   await flutterLocalNotificationsPlugin.show(
       notificationId, title, message, platformChannelSpecifics,
@@ -212,7 +203,6 @@ Future<void> initializeLocalNotifications() async {
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onSelectNotification: (String payload) async {
     print("On Select notification has been called");
-
   });
 }
 
@@ -231,13 +221,7 @@ Future didNotificationLaunchApp() async {
     Wakelock.disable();
     return;
   }
-
 }
-
-
-
-
-
 
 void registerOneSignal() {}
 

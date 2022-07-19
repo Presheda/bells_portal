@@ -5,7 +5,7 @@ import 'course_reg_controller.dart';
 class CourseRegPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CourseRegController>(builder: (model) {
+    return GetBuilder<CourseRegPageController>(builder: (model) {
       return CustomScrollView(
         physics: BouncingScrollPhysics(),
         slivers: [

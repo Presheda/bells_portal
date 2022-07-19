@@ -18,6 +18,8 @@ class RouteName {
 
   static const String profile_screen = "/profile_screen";
   static const String account_screen = "/account_screen";
+  static const String course_reg_screen = "/course_reg_screen";
+  static const String course_list_screen = "/course_list_screen";
 
 
   //then
@@ -74,6 +76,34 @@ class RouteName {
           name: user_dashboard,
         ),
         page: () => UserDashboardScreen(),
+      ),
+
+      GetPage(
+        name: user_dashboard,
+        transition: Transition.rightToLeft,
+        settings: RouteSettings(
+          name: user_dashboard,
+        ),
+        page: () => UserDashboardScreen(),
+      ),
+
+
+  GetPage(
+        name: course_reg_screen,
+        transition: Transition.rightToLeft,
+        settings: RouteSettings(
+          name: course_reg_screen,
+        ),
+        page: () => CourseRegScreen(),
+      ),
+
+      GetPage(
+        name: course_list_screen,
+        transition: Transition.rightToLeft,
+        settings: RouteSettings(
+          name: course_list_screen,
+        ),
+        page: () => CourseListScreen(),
       ),
 
 
