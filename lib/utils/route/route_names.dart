@@ -21,6 +21,9 @@ class RouteName {
   static const String course_reg_screen = "/course_reg_screen";
   static const String course_list_screen = "/course_list_screen";
 
+  static const String payment_screen_session =  "/payment_screen_session";
+  static const String payment_screen =  "/payment_screen";
+
 
   //then
   static List<GetPage> getPages() {
@@ -104,6 +107,24 @@ class RouteName {
           name: course_list_screen,
         ),
         page: () => CourseListScreen(),
+      ),
+
+   GetPage(
+        name: payment_screen_session,
+        transition: Transition.rightToLeft,
+        settings: RouteSettings(
+          name: payment_screen_session,
+        ),
+        page: () => PaymentScreenSession(),
+      ),
+
+   GetPage(
+        name: payment_screen,
+        transition: Transition.rightToLeft,
+        settings: RouteSettings(
+          name: payment_screen,
+        ),
+        page: () => PaymentScreen(),
       ),
 
 

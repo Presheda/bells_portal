@@ -24,7 +24,11 @@ class HomePageController extends GetxController {
     return "Afonja Doyinmola";
   }
 
-  financialWidgetTap() {}
+  financialWidgetTap() {
+      print("After my life");
+
+    _navigationService.goToNamed(name: RouteName.payment_screen);
+  }
 
   String getCurrentSession() {
     return "2021/2022";

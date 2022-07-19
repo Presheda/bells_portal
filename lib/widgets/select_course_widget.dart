@@ -12,19 +12,16 @@ class SelectCourseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color _backColor = isSelected
+    Color _backColor = !isSelected
         ? Theme.of(context).inputDecorationTheme.fillColor
         : Theme.of(context).primaryColor.withOpacity(.15);
 
-    Color _borderColor = isSelected
+    Color _borderColor = !isSelected
         ? Theme.of(context).inputDecorationTheme.fillColor
         : Theme.of(context).primaryColor;
 
-    Color _textColor = isSelected
-        ? null
-        : Color(0xff88888F);
-
-
+    Color _textColor =
+        !isSelected ? null : Theme.of(context).textTheme.headline6.color;
 
     return Container(
       decoration: BoxDecoration(
@@ -44,9 +41,10 @@ class SelectCourseWidget extends StatelessWidget {
             padding:
                 const EdgeInsets.only(top: 16, bottom: 16, left: 20, right: 20),
             child: CustomText(
-              title: title ?? "Nothing selected",
-              fontSize: 12,
-              color: _textColor
+                title: title ?? "Nothing selected",
+                fontSize: 12,
+                color: _textColor
+
             )),
         expanded: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),

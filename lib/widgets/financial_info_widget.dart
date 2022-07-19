@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'export_widgets.dart';
@@ -44,6 +45,7 @@ class FinancialInfoWidget extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: "financial status",
+                        recognizer:  TapGestureRecognizer()..onTap = onTap,
                         style: GoogleFonts.poppins(
                             fontSize: 13,
                             color: Color(0xffEAEAEA),
