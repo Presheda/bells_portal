@@ -7,24 +7,16 @@ import 'package:bells_portal/views/screens/course_reg/course_reg_controller.dart
 import 'package:bells_portal/views/screens/home/home_page_controller.dart';
 import 'package:bells_portal/views/screens/profile/profile_page_controller.dart';
 
-
 import 'package:bells_portal/widgets/export_widgets.dart';
 
-
-
-
-class UserDashboardController extends GetxController  {
-
-
-  int currentIndex = 0;
+class UserDashboardController extends GetxController {
+  int currentIndex;
 
   CloudFunctionService _cloudFunctionService = locator<CloudFunctionService>();
   UserDataService _userDataService = locator<UserDataService>();
   DNavigationService _navigationService = locator<DNavigationService>();
 
   AppLifecycleState state;
-
-
 
   @override
   void onClose() {
@@ -33,18 +25,16 @@ class UserDashboardController extends GetxController  {
     super.onClose();
   }
 
-  void cancelSub() {
-
-  }
+  void cancelSub() {}
 
   @override
   void onInit() {
-  //  Get.put(GeneralController());
+    //  Get.put(GeneralController());
+
+    currentIndex = 0;
     Get.put(HomePageController());
     Get.put(ProfilePageController());
     Get.put(CourseRegPageController());
-
-
 
     super.onInit();
   }
@@ -52,20 +42,13 @@ class UserDashboardController extends GetxController  {
   @override
   void onReady() {
     super.onReady();
-
   }
-
-
-
 
   void bItemTapped(int index) {
     currentIndex = index;
 
     update();
   }
-
-
-
 
   void leadingTap() {}
 
@@ -108,7 +91,6 @@ class UserDashboardController extends GetxController  {
     currentIndex = index;
     update();
 
-
     await Future.delayed(Duration(milliseconds: 200));
 
     if (homePage == null || !homePage) {
@@ -123,20 +105,6 @@ class UserDashboardController extends GetxController  {
       CustomSnackBar.topSuccessSnackBar(title: title);
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 enum DashboardMenu { home, cart, wallet, orders, profile }

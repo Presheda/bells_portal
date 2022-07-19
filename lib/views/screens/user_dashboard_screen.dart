@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bells_portal/utils/asset_names.dart';
 import 'package:bells_portal/views/controllers/export_controller.dart';
 import 'package:bells_portal/views/screens/course_reg/course_reg_page.dart';
 
@@ -16,8 +15,6 @@ class UserDashboardScreen extends StatelessWidget {
         init: UserDashboardController(),
         builder: (model) {
           return Scaffold(
-              //   appBar: DAppBar(model: model,),
-
               body: UpgradeAlert(
                 upgrader: Upgrader(
                   dialogStyle: Platform.isIOS
@@ -52,7 +49,6 @@ class _UserDashboardMobile extends StatelessWidget {
       index: model.currentIndex,
       children: [
         HomePage(),
-
         CourseRegPage(),
         ProfilePage(),
       ],

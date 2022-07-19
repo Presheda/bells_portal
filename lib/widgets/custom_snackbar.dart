@@ -11,7 +11,7 @@ class CustomSnackBar {
         null,
         backgroundColor: Get.theme.errorColor,
         messageText: CustomText(
-          fontSize: 18,
+          fontSize: 16,
           title: title,
           color: Colors.white,
           textAlign: TextAlign.center,

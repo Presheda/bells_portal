@@ -11,6 +11,7 @@ class CourseListScreen extends StatelessWidget {
           return Scaffold(
             body: SlidingUpPanel(
               body: CustomScrollView(
+                physics: BouncingScrollPhysics(),
                 slivers: [
                   SliverAppBar(
                     leading: IconButton(
@@ -33,6 +34,24 @@ class CourseListScreen extends StatelessWidget {
                     //  backgroundColor: Colors.red,
                     pinned: false,
                   ),
+                  SliverPadding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    sliver: SliverList(
+                      delegate: SliverChildBuilderDelegate((c, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 6),
+                          child: CourseRegWidget(
+                            onTap : (){
+                        model.selectCourse(      courseRegData: model.courseRegDataList[index]);
+                            },
+                              isChecked: model.isCourseSelected(
+                                  courseRegData:
+                                      model.courseRegDataList[index]),
+                              course: model.courseRegDataList[index]),
+                        );
+                      }, childCount: model.courseRegDataList.length),
+                    ),
+                  )
                 ],
               ),
               maxHeight: 150,
@@ -77,6 +96,7 @@ class CourseListScreen extends StatelessWidget {
                     ),
                     GradientButton(
                       title: "Proceed",
+                      onTap: model.proceedToRegister,
                     ),
                     SizedBox(
                       height: 15,

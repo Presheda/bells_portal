@@ -48,7 +48,7 @@ void setupServices() {
   locator.registerFactory<UserDataService>(() => UserDataServiceFake());
   locator.registerFactory<GenerateDocumentID>(() => GenerateDocumentIDReal());
   locator.registerFactory<GeneralRefService>(() => GeneralRefServiceReal());
-  locator.registerFactory<CourseRegService>(() => CourseRegServiceReal());
+  locator.registerFactory<CourseRegService>(() => CourseRegServiceFake());
 }
 
 void setupFakeServices() {

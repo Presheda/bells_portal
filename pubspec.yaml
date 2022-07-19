@@ -75,6 +75,7 @@ dependencies:
   smooth_star_rating: ^1.1.1
   material_floating_search_bar: ^0.3.5
   animated_bottom_navigation_bar: ^0.3.2
+
   algolia: ^1.0.4
   device_preview: ^1.0.0
   quiver: ^2.1.5
