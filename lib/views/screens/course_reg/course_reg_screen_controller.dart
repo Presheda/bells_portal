@@ -11,6 +11,9 @@ class CourseRegScreenController extends GetxController {
 
   String selectedSemester = "Select semester";
 
+  bool isSessionPicked = false;
+  bool isSemesterPicked = false;
+
   @override
   void onInit() {
     // selectedSession = sessionList[0];
@@ -20,12 +23,14 @@ class CourseRegScreenController extends GetxController {
   sessionSelected({String name}) {
     selectedSession = name;
 
+    isSessionPicked = true;
     update();
   }
 
   semesterSelected({String name}) {
     selectedSemester = name;
 
+    isSemesterPicked = true;
     update();
   }
 
@@ -42,6 +47,16 @@ class CourseRegScreenController extends GetxController {
   }
 
   proceedTaped() {
+    if (!isSessionPicked) {
+      CustomSnackBar.errorSnackBar(title: "Please select session");
+      return;
+    }
+
+    if (!isSemesterPicked) {
+      CustomSnackBar.errorSnackBar(title: "Please select semester");
+      return;
+    }
+
     _navigationService.goToNamed(name: RouteName.course_list_screen);
   }
 }

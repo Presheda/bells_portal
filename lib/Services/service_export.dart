@@ -1,7 +1,7 @@
 export 'auth_service.dart';
 export 'cloud_function_service.dart';
 export 'dNavigationService.dart';
-
+export 'course_history_service.dart';
 export 'generate_id.dart';
 export 'user_data_service.dart';
 export 'storage_service.dart';

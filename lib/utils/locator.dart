@@ -48,7 +48,12 @@ void setupServices() {
   locator.registerFactory<UserDataService>(() => UserDataServiceFake());
   locator.registerFactory<GenerateDocumentID>(() => GenerateDocumentIDReal());
   locator.registerFactory<GeneralRefService>(() => GeneralRefServiceReal());
+
+  //TODO change this to real class
   locator.registerFactory<CourseRegService>(() => CourseRegServiceFake());
+
+  locator
+      .registerFactory<CourseHistoryService>(() => CourseHistoryServiceReal());
 }
 
 void setupFakeServices() {
@@ -60,6 +65,9 @@ void setupFakeServices() {
 
   locator.registerFactory<DNavigationService>(() => DNavigationServiceReal());
   locator.registerFactory<GeneralRefService>(() => GeneralRefServiceFake());
+
+  locator
+      .registerFactory<CourseHistoryService>(() => CourseHistoryServiceFake());
 }
 
 void listenForFirebaseNotification() {

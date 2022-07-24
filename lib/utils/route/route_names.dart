@@ -22,7 +22,10 @@ class RouteName {
   static const String course_list_screen = "/course_list_screen";
 
   static const String payment_screen_session =  "/payment_screen_session";
+
   static const String payment_screen =  "/payment_screen";
+
+  static const String course_history_screen =  "/course_history_screen";
 
 
   //then
@@ -125,6 +128,15 @@ class RouteName {
           name: payment_screen,
         ),
         page: () => PaymentScreen(),
+      ),
+
+   GetPage(
+        name: course_history_screen,
+        transition: Transition.rightToLeft,
+        settings: RouteSettings(
+          name: course_history_screen,
+        ),
+        page: () => CourseHistoryScreen(),
       ),
 
 

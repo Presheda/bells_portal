@@ -8,3 +8,4 @@ export 'themes/theme_dark.dart';
 export 'route/route_names.dart';
 export 'locator.dart';
 export 'sliver_persistent_header_delegate_impl.dart';
+export 'cloud_function_names.dart';

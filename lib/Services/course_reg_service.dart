@@ -17,6 +17,12 @@ class CourseRegServiceFake extends CourseRegService {
   @override
   Stream<List<CourseRegData>> getCourseData(
       {String college, String department, String level}) async* {
+
+
+
+    await Future.delayed(Duration(milliseconds: 500));
+
+
     yield [
       CourseRegData(
           courseCode: "501",
